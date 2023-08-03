@@ -1,0 +1,22 @@
+/* body {
+    font-family: Arial, sans-serif;
+}
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  } */
+  .message {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+  }
+
+  .main-container{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

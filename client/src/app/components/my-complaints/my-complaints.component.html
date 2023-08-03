@@ -1,0 +1,34 @@
+<div class="main-container" *ngIf="isLoading">
+  <app-loader-spinner></app-loader-spinner>
+</div>
+<div *ngIf="!isLoading">
+  <div class="center-container d-flex flex-column" *ngIf="complaints.length === 0">
+    <p class="message">
+      No complaints have been registered yet. If you have any issues or concerns, please don't hesitate to report them. To submit a complaint, click on the 'New Complaint' button.
+    </p>
+    
+    <button class="btn btn-primary" routerLink="/complaint">New Complaint</button>
+  </div>
+  <div class="container mt-4" *ngIf="complaints.length !== 0">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 style="font-weight: bold;">My Complaints</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let complaint of complaints">
+          <div class="card mb-4" style="width: 100%; box-shadow: 0 0 20px #bbbbbb;">
+            <div class="card-body">
+              <h5 class="card-title"><span style="font-weight: bold; font-size: 20px;">Id:</span> {{ complaint._id }}</h5>
+              <p class="card-text"><span style="font-weight: bold; font-size: 20px;">Name:</span> {{ complaint.name }}</p>
+              <p class="card-text"><span style="font-weight: bold; font-size: 20px;">Phone:</span> {{ complaint.phone }}</p>
+              <p class="card-text"><span style="font-weight: bold; font-size: 20px;">Complaint:</span> {{ complaint.complaintDetails }}</p>
+              <p class="card-text"><span style="font-weight: bold; font-size: 20px;">Date:</span> {{ complaint.createdAt | date }}</p>
+              <p class="card-text"><span style="font-weight: bold; font-size: 20px;">Status:</span> {{ complaint.status }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>

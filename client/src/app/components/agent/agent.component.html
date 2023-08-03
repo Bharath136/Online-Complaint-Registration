@@ -1,0 +1,25 @@
+<div class="main-container" *ngIf="isLoading">
+  <app-loader-spinner></app-loader-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="main-container" *ngIf="notifications.length === 0">
+    <div class="container text-center" >
+      <h2>Agents Not Available</h2>
+      <p class="message">Sorry, all agents are currently busy. Please try again later. If once they free they will connect with you.</p>
+    </div>
+  </div>
+  
+  <div class="container p-4" *ngIf="notifications.length !== 0">
+      <h2>Agents Messages</h2>
+      <ul class="list-group">
+        <li class="list-group-item mb-4 border" *ngFor="let notification of notifications">
+          <strong>Sender Name:</strong> {{ notification.senderId.firstname }} {{ notification.senderId.lastname }}<br>
+          <strong>Sender Email:</strong> {{ notification.senderId.email }}<br>
+          <strong>Message:</strong> {{ notification.content }}<br>
+          <button class="btn btn-primary mt-2"  routerLink="/chat/{{notification.senderId._id}}">Message</button>
+        </li>
+      </ul>
+    </div>
+</div>
+  
